@@ -1,0 +1,7 @@
+# [ED] Quantum libraries for quantum_wfm, added on top of env/requirements.txt (env `wfm`, Python 3.10, torch 2.6.0).
+# pip --dry-run (2026-11-24): these add packages only, no existing package changes.
+# pennylane-qiskit is NOT used: it requires sympy<1.13, torch 2.6.0 pins sympy==1.13.1.
+pennylane==0.42.3
+qiskit==2.6.2
+qiskit-machine-learning==0.9.1
+qiskit-aer==0.17.2

@@ -1,0 +1,35 @@
+# [ED] C-WFM fine-tuning on Turbulent Radiative Layer 2D: classical control of qwfm_trl_3scale_haar.toml.
+# Identical to the Q config except [main].exp_name and [quantum].kind (spec: quantum_wfm/DESIGN.md §5.3).
+base_config = "configs/turbulent_radiative_layer_2D/WaveletFlow_turbulent_radiative_layer_2D_3scales_haar_ablation_v4.0.toml"
+
+[main]
+    exp_name = "CWFM_turbulent_radiative_layer_2D_3scale_haar"
+
+[path]
+    well_base_path   = "data/datasets"
+    stats_path       = "data/datasets/turbulent_radiative_layer_2D/stats.yaml"
+    experiments_path = "experiments/turbulent_radiative_layer_2D"
+
+[warm_start]
+    model = "WFM_3scale_haar"
+
+[quantum]
+    kind     = "classical"
+    n_qubits = 8
+    n_layers = 4
+    backend  = "pennylane"             # unused by the classical f
+
+[finetune]
+    epochs        = 10
+    lr            = 1e-3
+    warmup_epochs = 0                  # 0 = cosine from lr at epoch 0 (QuantumWaveletFlowModule.configure_optimizers)
+    weight_decay  = 1e-2
+    eta_min       = 1e-7
+
+[lightning.datamodules]
+    data_workers = 8
+
+[lightning.trainer]
+    accelerator = "auto"
+    strategy    = "auto"
+    precision   = "32-true"
