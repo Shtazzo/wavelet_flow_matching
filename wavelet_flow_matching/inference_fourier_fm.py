@@ -795,6 +795,7 @@ def main() -> None:
 
     # ── Model — every rank loads its own copy ─────────────────────────────────
     model = FourierFlowModule.from_checkpoint(ckpt_path, map_location=device)
+    model.flow_matching_cfg.num_sampling_steps = NUM_SAMPLING  # [ED] YAML steps override checkpoint (published ckpts = 20)
     model.eval()
     model.to(device)
     print(f"  [rank {rank}] model loaded on {device}")

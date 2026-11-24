@@ -800,6 +800,7 @@ def main() -> None:
         model_class   = cfg.get("model_class", "wavelet"),  # set "latent" in the inference YAML
         ae_state_path = cfg.get("ae_state_path", None),     # optional override
     )
+    model.flow_matching_cfg.num_sampling_steps = NUM_SAMPLING  # [ED] YAML steps override checkpoint (published ckpts = 20)
     model.eval()
     model.to(device)
     print(f"  [rank {rank}] model loaded on {device}")

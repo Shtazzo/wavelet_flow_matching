@@ -25,7 +25,7 @@ INFER=${REPO}/wavelet_flow_matching/inference_latent_fm.py
 
 N_GPUS=4
 N_ENSEMBLE=8   # M: ensemble members (independent realizations) per initial condition
-NUM_SAMPLING=50
+NUM_SAMPLING=50   # [ED] ODE steps actually run. 20 = value stored in all published ckpts (old behaviour), 50 = 50 steps
 ODE_METHOD="euler"        # keep in sync with the YAML's ode_method
 CLAMP_SIGMA=5.0
 
