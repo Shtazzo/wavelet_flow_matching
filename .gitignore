@@ -12,3 +12,10 @@ __pycache__/
 /performance/
 /scripts/logs/
 
+
+# other
+/code_guide/
+/wavelet_flow_matching.egg-info/
+commit_message.txt
+# [ED] local editor settings, not part of the repo
+/.vscode/
