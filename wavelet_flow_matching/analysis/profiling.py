@@ -2,7 +2,10 @@
 
 Each YAML is written by the inference driver: wall_clock_s (max over ranks),
 total_steps_global, throughput_*, gpu_peak_mem_GiB (per rank). All models use
-NFE = 50 Euler steps, 8 samples, 4 x A100.
+8 samples, 4 x A100.
+[ED] NFE = num_sampling_steps of the inference run (label nsampling<N>). Before
+the [ED] inference fix the ODE always ran the checkpoint value (20 in all
+published checkpoints), whatever the label said.
 
   speedup   = wall_clock(FM_pixel) / wall_clock(WFM)          (> 1: WFM faster)
   mem_ratio = gpu_mem(FM_pixel)    / gpu_mem(WFM)             (> 1: WFM lighter)

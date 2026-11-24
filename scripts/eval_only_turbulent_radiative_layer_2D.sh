@@ -18,7 +18,7 @@ DATASET_NAME="turbulent_radiative_layer_2D"
 REPO=/glade/work/gaccarino/wavelet_flow_matching
 CONFIG=${REPO}/configs/${DATASET_NAME}/inference_${DATASET_NAME}.yaml
 N_ENSEMBLE=8   # M: ensemble members (independent realizations) per initial condition
-NUM_SAMPLING=20
+NUM_SAMPLING=50   # [ED] label only: must equal NUM_SAMPLING of the inference run to read (inference scripts: 50)
 
 conda activate mlenv
 
